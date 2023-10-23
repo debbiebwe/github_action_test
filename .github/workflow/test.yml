@@ -1,0 +1,22 @@
+name: Run a.py on Push
+
+on:
+  push:
+    branches:
+      - main  # 如果你使用的是主分支，请将其更改为正确的分支名称
+
+jobs:
+  run-a.py:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - name: Run a.py
+      run: python a.py
